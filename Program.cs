@@ -2,8 +2,10 @@
 {
     internal class Program
     {
-        public void Main(string[] args)
+        static void Main(string[] args)
         {
+            Menu menu = new Menu();
+            menu.ProgramMenu();
         }
     }
 }
