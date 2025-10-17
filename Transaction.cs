@@ -8,13 +8,16 @@ namespace PersonalBudgetTrackerAssignment
 {
     public class Transaction
     {
-        string description;
-        decimal amount;
-        string date;
-        string category;
+        public string description;
+        public decimal amount;
+        public string date;
+        public string category;
+        public int ID;
 
 
-        //Fixa public void ShowInfo() här
-        //Tips! Färga text, Console.ForegroundColor = ConsoleColor.Green;  Console.ResetColor();
+        public void ShowInfo()
+        {
+            Console.WriteLine($" Amount: {amount} \n Date: {date} \n Category: {category} \n Description: {description} \n ID: {ID}");
+        }
     }
 }
