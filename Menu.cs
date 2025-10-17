@@ -54,9 +54,13 @@ namespace PersonalBudgetTrackerAssignment
                         ContinueOrQuit();
                         break;
 
-                    case "6": // Quit
-                        Console.WriteLine("hello case 6");
+                    case "6": // Statistics
+                        manager.Statistics();
                         ContinueOrQuit();
+                        break;
+
+                    case "7": // Quit
+                        Console.WriteLine("Godbye!");
                         break;
 
                     default: // If anything else is writen
@@ -81,7 +85,8 @@ namespace PersonalBudgetTrackerAssignment
                 "3. Total Balance\n" +
                 "4. Remove Transaction\n" +
                 "5. Show Transaction in Order\n" +
-                "6. Quit");
+                "6. Statistics\n" +
+                "7. Quit");
 
             // This is where the user write their choice
             Console.Write("\nPlease write your answere: ");
