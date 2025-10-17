@@ -8,12 +8,68 @@ namespace PersonalBudgetTrackerAssignment
 {
     public class Menu
     {
+        BudgetManager manager = new BudgetManager();
         // Boolean for the ProgramMenu() methods while loop
         public bool menuTrigger = true;
 
         // Choice variable for the switch statment in Program.cs
         public string choiceMenu;
 
+        //-----------------------------------------------------------------------------------------------------------------
+
+        public void AppMenu()
+        {
+            // This is the while loop that will continue to show the menu until a legit choice have been made
+            while (menuTrigger == true)
+            {
+
+                // Menu alternatives text and input for user
+                MenuAlternatives();
+
+                // a swich statement that will give the user a response depending on what they have chosen
+                switch (choiceMenu)
+                {
+                    case "1": // Add Transaction
+                        manager.AddTransaction();
+                        ContinueOrQuit(); // Asks user if they want to go back to menu or quit app
+                        break;
+
+                    case "2": // All Transactions
+                        manager.ShowAll();
+                        ContinueOrQuit();
+                        break;
+
+                    case "3": // Total Balance
+                        manager.CalculateTotalBalance();
+                        ContinueOrQuit();
+                        break;
+
+                    case "4": // Remove Transaction
+                        manager.DeleteTransaction();
+                        ContinueOrQuit();
+                        break;
+
+                    case "5": // Show Transactions in Order (sorting them)
+                        manager.SortTransactions();
+                        ContinueOrQuit();
+                        break;
+
+                    case "6": // Quit
+                        Console.WriteLine("hello case 6");
+                        ContinueOrQuit();
+                        break;
+
+                    default: // If anything else is writen
+                        Console.WriteLine("Something is wrong with your choice." +
+                            "\nType only the corresponding number, like for example \"1\" or \"2\" and then press enter.\n\n");
+                        continue;
+
+                }
+
+            }
+        }
+
+        //-----------------------------------------------------------------------------------------------------------------
 
         public string MenuAlternatives()
         {
@@ -36,6 +92,7 @@ namespace PersonalBudgetTrackerAssignment
             return choiceMenu; // Skickar val till switch val variabel
         }
 
+        //--------------------------------------------------------------------------------------------------------------------
 
         // Method that asks user if they wants to continue back to the menu or quit program
         public void ContinueOrQuit()
