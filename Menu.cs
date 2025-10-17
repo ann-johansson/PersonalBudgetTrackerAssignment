@@ -8,69 +8,61 @@ namespace PersonalBudgetTrackerAssignment
 {
     public class Menu
     {
-
         // Boolean for the ProgramMenu() methods while loop
-        bool menuTrigger = true;
+        public bool menuTrigger = true;
+
+        // Choice variable for the switch statment in Program.cs
+        public string choiceMenu;
 
 
-        // Method where the menu to this program lies
-        public void ProgramMenu()
+        public string MenuAlternatives()
         {
-            // This is the while loop that will continue to show the menu until a legit choice have been made
-            while (menuTrigger == true)
+            // The introduction and alternatives text
+            Console.WriteLine("Welcome to your Personal Budget Tracker!\n");
+            Console.WriteLine("Please choose one of the following alternatives through writing the corresponding number and press enter:\n" +
+                "1. Add Transaction\n" +
+                "2. All Transactions\n" +
+                "3. Total Balance\n" +
+                "4. Remove Transaction\n" +
+                "5. Show Transaction in Order\n" +
+                "6. Quit");
+
+            // This is where the user write their choice
+            Console.Write("\nPlease write your answere: ");
+            choiceMenu = Console.ReadLine();
+
+            Console.WriteLine(); // Estetic space inbetween text
+
+            return choiceMenu; // Skickar val till switch val variabel
+        }
+
+
+        // Method that asks user if they wants to continue back to the menu or quit program
+        public void ContinueOrQuit()
+        {
+
+            //Question if user wanna quit or continue back to menu
+            Console.WriteLine("Do you want to return to menu? Press \"y\" for yes and \"n\" for no:");
+            string answere = Console.ReadLine();
+
+            answere = answere.Trim().ToLower(); // Removes space and ensures lower case, makes it more fool proof
+
+            // If statement for decision
+            if (answere == "y")
             {
-
-                // The introduction and alternatives text
-                Console.WriteLine("Welcome to your personal budget tracker!\n");
-                Console.WriteLine(@"
-Please choose one of the following alternatives through writing the corresponding number and press enter:
-1. Add Transaction
-2. All Transaction
-3. Total Balance
-4. Remove Transaction
-5. Show Transaction in order
-6. Quit");
-
-
-                // This is where the user write their choice
-                Console.Write("\nPlease write your answere: ");
-                string choiseMenu = Console.ReadLine();
-
-
-                // a swich statement that will give the user a response depending on what they have chosen
-                switch (choiseMenu)
-                {
-                    case "1":
-                        Console.WriteLine("hello choise 1");
-                        menuTrigger = false;
-                        break;
-                    case "2":
-                        Console.WriteLine("hello case 2");
-                        menuTrigger = false;
-                        break;
-                    case "3":
-                        Console.WriteLine("hello choise 3");
-                        menuTrigger = false;
-                        break;
-                    case "4":
-                        Console.WriteLine("hello case 4");
-                        menuTrigger = false;
-                        break;
-                    case "5":
-                        Console.WriteLine("hello choise 5");
-                        menuTrigger = false;
-                        break;
-                    case "6":
-                        Console.WriteLine("hello case 6");
-                        menuTrigger = false;
-                        break;
-                    default:
-                        Console.WriteLine("Something is wrong with your choice." +
-                            "\nType only the corresponding number, like for example \"1\" or \"2\" and then press enter.");
-                        continue;
-
-                }
-
+                menuTrigger = true;
+                Console.WriteLine(); // Estetic space inbetween text
+            }
+            else if (answere == "n")
+            {
+                Console.WriteLine("Goodbye! Press any key to close the application.");
+                menuTrigger = false;
+                Console.ReadKey(); // Stops the app from closing to fast
+            }
+            else
+            {
+                Console.WriteLine("Wrong input, please try again.");
+                ContinueOrQuit(); // Repeats the if statement
             }
         }
     }
