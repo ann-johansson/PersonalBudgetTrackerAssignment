@@ -152,6 +152,34 @@ namespace PersonalBudgetTrackerAssignment
 
         //-----------------------------------------------------------------------------------------------------------
 
+        // A method that shows statistics
+        public void Statistics()
+        {
+            // Variables for storing the numbers of transactions and amounts
+            int numberOfTransactions = 0;
+            decimal totalIncome = 0;
+            decimal totalExpenses = 0;
+
+            // Using a foreach loop with an if statment to collect necessary data
+            foreach (Transaction transaction in MyTransactions)
+            {
+                numberOfTransactions++; // gives number of transactions
+
+                if (transaction.amount > 0) // decides if it is an income or expense
+                    totalIncome += transaction.amount; // income
+                else
+                    totalExpenses += transaction.amount; // expense
+            }
+
+            // writing out all statistics
+            Console.WriteLine("Statistics:\n");
+            Console.WriteLine($"Number of transactions: {numberOfTransactions}");
+            Console.WriteLine($"Total income: {totalIncome}");
+            Console.WriteLine($"Total expenses: {totalExpenses}");
+        }
+
+        //-----------------------------------------------------------------------------------------------------------
+
         // Tillfällig test constructor
         public BudgetManager()
         {
