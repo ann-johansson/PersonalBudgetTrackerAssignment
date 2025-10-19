@@ -15,8 +15,6 @@ namespace PersonalBudgetTrackerAssignment
         // Choice variable for the switch statment in Program.cs
         public string choiceMenu;
 
-        //-----------------------------------------------------------------------------------------------------------------
-
         public void AppMenu()
         {
             // This is the while loop that will continue to show the menu until a legit choice have been made
@@ -31,36 +29,36 @@ namespace PersonalBudgetTrackerAssignment
                 {
                     case "1": // Add Transaction
                         manager.AddTransaction();
-                        ContinueOrQuit(); // Asks user if they want to go back to menu or quit app
+                        Continue(); // Asks user to press enter to continue and also clears screen
                         break;
 
                     case "2": // All Transactions
                         manager.ShowAll();
-                        ContinueOrQuit();
+                        Continue();
                         break;
 
                     case "3": // Total Balance
                         manager.CalculateTotalBalance();
-                        ContinueOrQuit();
+                        Continue();
                         break;
 
                     case "4": // Remove Transaction
                         manager.DeleteTransaction();
-                        ContinueOrQuit();
+                        Continue();
                         break;
 
                     case "5": // Show Transactions in Order (sorting them)
                         manager.SortTransactions();
-                        ContinueOrQuit();
+                        Continue();
                         break;
 
                     case "6": // Statistics
                         manager.Statistics();
-                        ContinueOrQuit();
+                        Continue();
                         break;
 
                     case "7": // Quit
-                        Console.WriteLine("Godbye!");
+                        menuTrigger = false;
                         break;
 
                     default: // If anything else is writen
@@ -99,33 +97,15 @@ namespace PersonalBudgetTrackerAssignment
 
         //--------------------------------------------------------------------------------------------------------------------
 
-        // Method that asks user if they wants to continue back to the menu or quit program
-        public void ContinueOrQuit()
+        // Method that makes a smoother transit back to menu and also clear previous text
+        public void Continue()
         {
 
             //Question if user wanna quit or continue back to menu
-            Console.WriteLine("\n Do you want to return to menu? Press \"y\" for yes and \"n\" for no:");
-            string answere = Console.ReadLine();
-
-            answere = answere.Trim().ToLower(); // Removes space and ensures lower case, makes it more fool proof
-
-            // If statement for decision
-            if (answere == "y")
-            {
-                menuTrigger = true;
-                Console.WriteLine(); // Estetic space inbetween text
-            }
-            else if (answere == "n")
-            {
-                Console.WriteLine("Goodbye! Press any key to close the application.");
-                menuTrigger = false;
-                Console.ReadKey(); // Stops the app from closing to fast
-            }
-            else
-            {
-                Console.WriteLine("Wrong input, please try again.");
-                ContinueOrQuit(); // Repeats the if statement
-            }
+            Console.WriteLine("\n Press enter to return to menu: ");
+            Console.ReadLine();
+            // Removes previous text for a cleaner program
+            Console.Clear();
         }
     }
 }

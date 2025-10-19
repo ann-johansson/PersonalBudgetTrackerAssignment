@@ -115,7 +115,7 @@ namespace PersonalBudgetTrackerAssignment
         public void DeleteTransaction()
         {
             //Asks which transaction the user wants to remove
-            Console.WriteLine("Please write the ID for the transaction you want to delete: ");
+            Console.WriteLine("Please write the ID for the transaction you want to delete (check \"All Transactions\" to see ID): ");
             int removeThis = int.Parse(Console.ReadLine());
 
             //finds transaction in the list and stores it in a variable
@@ -242,34 +242,6 @@ namespace PersonalBudgetTrackerAssignment
 
         //-----------------------------------------------------------------------------------------------------------
 
-
-        // Tillfällig test constructor
-        public BudgetManager()
-        {
-            Transaction newTransaction1 = new Transaction();
-            newTransaction1.amount = 1000;
-            newTransaction1.date = "2025-10-15";
-            newTransaction1.category = "art";
-            newTransaction1.description = "Min lön";
-            newTransaction1.ID = 389;
-            MyTransactions.Add(newTransaction1);
-
-            Transaction newTransaction2 = new Transaction();
-            newTransaction2.amount = -200;
-            newTransaction2.date = "2025-10-17";
-            newTransaction2.category = "mat";
-            newTransaction2.description = "Min mat";
-            newTransaction1.ID = 6795;
-            MyTransactions.Add(newTransaction2);
-
-            Transaction newTransaction3 = new Transaction();
-            newTransaction3.amount = 4000;
-            newTransaction3.date = "2025-10-17";
-            newTransaction3.category = "Lön";
-            newTransaction3.description = "Min mat";
-            newTransaction3.ID = 568;
-            MyTransactions.Add(newTransaction3);
-        }
 
     }
 }
