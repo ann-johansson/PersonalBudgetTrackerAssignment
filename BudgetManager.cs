@@ -24,9 +24,27 @@ namespace PersonalBudgetTrackerAssignment
         {
             Transaction newTransaction = new Transaction(); // creates new object
 
-            //adding information to the newTransaction object
-            Console.WriteLine("Please input amount: ");
-            newTransaction.amount = Convert.ToDecimal(Console.ReadLine());
+            // adding the amount and validating so it is a number
+            decimal checkValid;
+            // a while loop that loops until a correct amount is given
+            while (true)
+            {
+                Console.Write("Please input amount: ");
+                string inputAmount = Console.ReadLine();
+
+                //trying to convert the string into a number and giving it to checkValid if it works
+                if (decimal.TryParse(inputAmount, out checkValid)) 
+                {
+                    newTransaction.amount = checkValid; // giving the amount to our list
+                    break;
+                }
+                else // if it couldn't be converted
+                {
+                    Console.WriteLine("This is not a valid amount, please input a number.");
+                }
+            }
+
+            //adding other information to the newTransaction object
             Console.WriteLine("Please input date of transaction: ");
             newTransaction.date = Console.ReadLine();
             Console.WriteLine("Give it a category: ");
@@ -73,7 +91,21 @@ namespace PersonalBudgetTrackerAssignment
                 totalSum += MyTransactions[i].amount;
             }
 
-            Console.WriteLine("Your balance: " + totalSum); // Writing out the sum
+            Console.Write("Your balance: "); // Writing out the sum
+
+            //This if statement makes positive amounts green and negative amounts red
+            if (totalSum >= 0)
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine(totalSum);
+                Console.ResetColor();
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(totalSum);
+                Console.ResetColor();
+            }
         }
 
         //--------------------------------------------------------------------------------------
@@ -174,11 +206,42 @@ namespace PersonalBudgetTrackerAssignment
             // writing out all statistics
             Console.WriteLine("Statistics:\n");
             Console.WriteLine($"Number of transactions: {numberOfTransactions}");
-            Console.WriteLine($"Total income: {totalIncome}");
-            Console.WriteLine($"Total expenses: {totalExpenses}");
+
+
+            Console.Write($"Total income: ");
+            //This if statement makes positive amounts green and negative amounts red
+            if (totalIncome >= 0)
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine(totalIncome);
+                Console.ResetColor();
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(totalIncome);
+                Console.ResetColor();
+            }
+
+
+            Console.Write($"Total expenses: ");
+            //This if statement makes positive amounts green and negative amounts red
+            if (totalExpenses >= 0)
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine(totalExpenses);
+                Console.ResetColor();
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(totalExpenses);
+                Console.ResetColor();
+            }
         }
 
         //-----------------------------------------------------------------------------------------------------------
+
 
         // Tillfällig test constructor
         public BudgetManager()
