@@ -17,7 +17,23 @@ namespace PersonalBudgetTrackerAssignment
 
         public void ShowInfo()
         {
-            Console.WriteLine($" Amount: {amount} \n Date: {date} \n Category: {category} \n Description: {description} \n ID: {ID}");
+            Console.Write($" Amount: ");
+
+            //This if statement makes positive amounts green and negative amounts red
+            if (amount >= 0)
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine(amount);
+                Console.ResetColor();
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(amount);
+                Console.ResetColor();
+            }
+
+            Console.WriteLine($" Date: {date} \n Category: {category} \n Description: {description} \n ID: {ID}");
         }
     }
 }

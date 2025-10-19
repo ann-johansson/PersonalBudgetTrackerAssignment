@@ -104,7 +104,7 @@ namespace PersonalBudgetTrackerAssignment
         {
 
             //Question if user wanna quit or continue back to menu
-            Console.WriteLine("Do you want to return to menu? Press \"y\" for yes and \"n\" for no:");
+            Console.WriteLine("\n Do you want to return to menu? Press \"y\" for yes and \"n\" for no:");
             string answere = Console.ReadLine();
 
             answere = answere.Trim().ToLower(); // Removes space and ensures lower case, makes it more fool proof
