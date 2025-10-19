@@ -41,4 +41,5 @@ kan använda samma metoder flera gånger, som metoden ShowInfo() i Transaction k
 
 Vilken del av projektet var mest utmanande?
 Jag tyckte remove transaction var svårast då man skulle hitta och ta bort ett vist objekt. Det var mer komplicerad kod
-känner jag personligen. Och värst av allt var flow charten, den var jätte jobbig att göra/strukturera.
+känner jag personligen. Och värst av allt var flow charten, vet inte riktigt vad eller hur jag skall skriva den men har
+skrivit ner lopar och satser.
